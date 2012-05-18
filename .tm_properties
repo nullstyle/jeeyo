@@ -1,0 +1,13 @@
+projectDirectory = "$CWD"
+fontSize = 14
+
+[ source.ruby ]
+softTabs         = true
+tabSize          = 2
+
+
+[ "{README,INSTALL,LICENSE,TODO}" ]
+fileType         = "text.plain"
+
+[ attr.untitled ]
+fileType         = 'source.ruby'
