@@ -22,6 +22,12 @@ module Jeeyo
       EARTH_KILOMETERS_PER_RADIAN * Unit(angular_distance, "radians")
     end
     
+    def equal?(other, accuracy=Unit(10, :meters))
+      raise ArgumentError, "Please use a distance unit" unless accuracy.kind == :length
+      
+      self.distance(other) <= accuracy
+    end
+    
     private
     
   end
