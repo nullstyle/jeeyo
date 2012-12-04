@@ -5,8 +5,8 @@ Gem::Specification.new do |gem|
   
   gem.authors       = ["Scott Fleckenstein"]
   gem.email         = ["nullstyle@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Jeeyo is a simple library of utility functions to help with geographic calculations}
+  gem.summary       = %q{Geo/GPS utility library}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)

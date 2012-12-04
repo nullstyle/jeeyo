@@ -1,6 +1,6 @@
 # Jeeyo
 
-TODO: Write a gem description
+Jeeyo is a simple library of utility functions to help with geographic calculations and other GPS related goodness.  It uses ruby-units to provide unit conversion.
 
 ## Installation
 
@@ -18,7 +18,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'jeeyo'
+san_francisco = Jeeyo::Location.new(Unit(37.76, "deg"), Unit(-122.4, "deg"))
+new_york = Jeeyo::Location.new(Unit(40.66, "deg"), Unit(-73.94, "deg"))
+
+as_the_crow_flies = san_francisco.distance(new_york) # => 4132.42 km
+
+as_the_crow_flies >> "miles" # => 2567.77 mi
+
+
+new_york.equal?(san_francisco) # => false
+# approximate location matching.
+new_york.equal?(san_francisco, Unit(2600, "miles")) # => true, i.e. new_york is less than 2600 miles from san_francico
+
+```
 
 ## Contributing
 
