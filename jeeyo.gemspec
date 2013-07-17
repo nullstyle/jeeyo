@@ -18,8 +18,10 @@ Gem::Specification.new do |gem|
   
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", ">= 2.10.0"
-  gem.add_development_dependency "autotest"
+  gem.add_development_dependency "pry"
 
   gem.add_runtime_dependency "ruby-units", "~> 1.4.1"
   gem.add_runtime_dependency "activesupport", ">= 3.0.0"
+  gem.add_runtime_dependency "virtus", ">= 0.5.5"
+  gem.add_runtime_dependency "nokogiri"
 end

@@ -1,25 +1,16 @@
 module Jeeyo
   class Location
-    attr_reader :lat, :lon
-    
-    def initialize(lat, lon)
-      @lat = lat
-      @lon = lon
-    end
-    
+    include Virtus
+
+    attribute :lat, Float 
+    attribute :lon, Float 
     
     def distance(other)
-      
-      dlat = (other.lat - self.lat) >> "radians"
-      dlon = (other.lon - self.lon) >> "radians"
+      raw_distance(other).to_unit(:kilometers)
+    end
 
-      a = (Math.sin(dlat/2) * Math.sin(dlat/2)) +
-          (Math.cos(self.lat) * Math.cos(other.lat) * 
-          (Math.sin(dlon/2) * Math.sin(dlon/2)))
-      
-      angular_distance = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
-      
-      EARTH_KILOMETERS_PER_RADIAN * Unit(angular_distance, "radians")
+    def raw_distance(other)
+      Util.haversine(self, other)
     end
     
     def equal?(other, accuracy=Unit(10, :meters))
@@ -27,8 +18,5 @@ module Jeeyo
       
       self.distance(other) <= accuracy
     end
-    
-    private
-    
   end
 end
